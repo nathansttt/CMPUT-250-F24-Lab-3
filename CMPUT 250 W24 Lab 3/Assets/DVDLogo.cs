@@ -23,6 +23,7 @@ public class DVDLogo : MonoBehaviour
     }
 
     private void FlipDirectionX(){
+        speed += 1;
         direction.x*=-1;
         direction.x+= Random.Range(-0.1f,0.1f);
         direction.y+= Random.Range(-0.1f,0.1f);
@@ -30,6 +31,7 @@ public class DVDLogo : MonoBehaviour
     }
 
     private void FlipDirectionY(){
+        speed += 1;
         direction.y*=-1;
         direction.x+= Random.Range(-0.1f,0.1f);
         direction.y+= Random.Range(-0.1f,0.1f);
