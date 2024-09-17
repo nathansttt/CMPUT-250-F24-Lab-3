@@ -36,6 +36,12 @@ public class DVDLogo : MonoBehaviour
         direction.Normalize();
     }
 
+    // Change the speed and direction of spin
+    private void AlterSpinDirection(){
+        spin = Random.Range(-3.2f,3.2f);
+    }
+
+    public float spin = 1;
     // Update is called once per frame
     void Update()
     {
@@ -46,19 +52,23 @@ public class DVDLogo : MonoBehaviour
         //See if a bounce needs to happen before moving
         if (newPosition.x>X_Max){
             FlipDirectionX();
-            
+            AlterSpinDirection();
         }
         else if (newPosition.x<-1*X_Max){
             FlipDirectionX();
+            AlterSpinDirection();
         }
-
         if (newPosition.y>Y_Max){
             FlipDirectionY();
+            AlterSpinDirection();
         }
         else if (newPosition.y<-1*Y_Max){
             FlipDirectionY();
+            AlterSpinDirection();
         }
 
         transform.position += direction*Time.deltaTime*speed;
+
+        transform.Rotate(0, 0, spin);
     }
 }
