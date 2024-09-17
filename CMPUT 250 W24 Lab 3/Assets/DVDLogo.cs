@@ -5,7 +5,12 @@ using UnityEngine;
 public class DVDLogo : MonoBehaviour
 {
     //Speed it moves at
-    public float speed = 3;
+    private float speed = 11;
+    private float minSize = -5.0f;
+    private float maxSize = 14.0f;
+    private float growSpeed = 1.2f;
+    private bool hitMax = true;
+    private bool hitMin = false;
 
     //Bounds of the screen (could get these with camera bounds but we can do this since it's a fixed camera)
     public float X_Max = 5, Y_Max = 4;
@@ -60,5 +65,24 @@ public class DVDLogo : MonoBehaviour
         }
 
         transform.position += direction*Time.deltaTime*speed;
+
+        if (hitMax)
+        {
+            transform.localScale -= new Vector3(growSpeed * Time.deltaTime,growSpeed * Time.deltaTime,0);
+        }
+        if (hitMin)
+        {
+            transform.localScale += new Vector3(growSpeed * Time.deltaTime,growSpeed * Time.deltaTime,0);
+        }
+        if (transform.localScale.x <= minSize)
+        {
+            hitMin = true;
+            hitMax = false;
+        }
+        if (transform.localScale.x >= maxSize)
+        {
+            hitMax = true;
+            hitMin = false;
+        }
     }
 }
