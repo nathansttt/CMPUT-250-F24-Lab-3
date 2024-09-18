@@ -5,10 +5,10 @@ using UnityEngine;
 public class DVDLogo : MonoBehaviour
 {
     //Speed it moves at
-    public float speed = 3;
+    public float speed ;
 
     //Bounds of the screen (could get these with camera bounds but we can do this since it's a fixed camera)
-    public float X_Max = 5, Y_Max = 4;
+    private float X_Max = 5.5f, Y_Max = 4.5f;
 
     //Current direction
     private Vector3 direction;
@@ -19,6 +19,7 @@ public class DVDLogo : MonoBehaviour
         //Randomly initialize direction
         direction = new Vector3(Random.Range(-1f,1f), Random.Range(-1f,1f));
         direction.Normalize();
+        speed = 7f;
 
     }
 
