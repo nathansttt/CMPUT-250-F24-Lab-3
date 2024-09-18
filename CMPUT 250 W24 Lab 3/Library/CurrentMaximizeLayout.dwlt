@@ -23,10 +23,10 @@ MonoBehaviour:
     y: 30
     width: 1512
     height: 806
-  m_MinSize: {x: 909, y: 442}
-  m_MaxSize: {x: 22004, y: 10021}
+  m_MinSize: {x: 908, y: 442}
+  m_MaxSize: {x: 22003, y: 10021}
   vertical: 0
-  controlID: 4019
+  controlID: 151
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 442}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 4020
+  controlID: 152
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -163,8 +163,8 @@ MonoBehaviour:
     y: 0
     width: 686
     height: 414
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 5}
   m_Panes:
   - {fileID: 5}
@@ -304,8 +304,8 @@ MonoBehaviour:
     y: 414
     width: 686
     height: 392
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 2}
@@ -368,7 +368,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 1cfbffff0e3900002a390000
+      m_ExpandedIDs: 64fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -456,20 +456,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders:
-    - Assets
+    m_Folders: []
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: /Users/harry/CMPUT-250-F24-Lab-3/CMPUT 250 W24 Lab 3
+  m_LastProjectPath: /Users/harry/Documents/GitHub/CMPUT-250-F24-Lab-3/CMPUT 250
+    W24 Lab 3
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: da3b0000
     m_LastClickedID: 15322
-    m_ExpandedIDs: ffffffff00000000703900009239000096390000a6390000ea3b0000ffffff7f
+    m_ExpandedIDs: 000000006c3900006e390000703900007239000074390000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -497,7 +497,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000703900009239000096390000a6390000ea3b0000ffffff7f
+    m_ExpandedIDs: ffffffff000000006c3900006e390000703900007239000074390000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -572,8 +572,8 @@ MonoBehaviour:
     y: 0
     width: 341
     height: 806
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
