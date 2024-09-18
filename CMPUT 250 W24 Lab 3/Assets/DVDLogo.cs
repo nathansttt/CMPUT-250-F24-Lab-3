@@ -50,6 +50,7 @@ public class DVDLogo : MonoBehaviour
         }
         else if (newPosition.x<-1*X_Max){
             FlipDirectionX();
+            
         }
 
         if (newPosition.y>Y_Max){
@@ -58,7 +59,7 @@ public class DVDLogo : MonoBehaviour
         else if (newPosition.y<-1*Y_Max){
             FlipDirectionY();
         }
-
+        speed += 0.005f;
         transform.position += direction*Time.deltaTime*speed;
     }
 }
