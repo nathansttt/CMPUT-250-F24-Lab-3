@@ -12,6 +12,8 @@ public class DVDLogo : MonoBehaviour
 
     //Current direction
     private Vector3 direction;
+    public Rigidbody2D RB;
+    public float torque;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class DVDLogo : MonoBehaviour
     }
 
     private void FlipDirectionX(){
+        RB.angularVelocity += torque;
         direction.x*=-1;
         direction.x+= Random.Range(-0.1f,0.1f);
         direction.y+= Random.Range(-0.1f,0.1f);
@@ -30,6 +33,7 @@ public class DVDLogo : MonoBehaviour
     }
 
     private void FlipDirectionY(){
+        RB.angularVelocity += -1;
         direction.y*=-1;
         direction.x+= Random.Range(-0.1f,0.1f);
         direction.y+= Random.Range(-0.1f,0.1f);
