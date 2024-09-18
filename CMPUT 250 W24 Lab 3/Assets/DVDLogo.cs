@@ -26,6 +26,8 @@ public class DVDLogo : MonoBehaviour
         direction.x*=-1;
         direction.x+= Random.Range(-0.1f,0.1f);
         direction.y+= Random.Range(-0.1f,0.1f);
+        speed += 0.2f;
+        Duplicate();
         direction.Normalize();
     }
 
@@ -33,7 +35,18 @@ public class DVDLogo : MonoBehaviour
         direction.y*=-1;
         direction.x+= Random.Range(-0.1f,0.1f);
         direction.y+= Random.Range(-0.1f,0.1f);
+        speed += 0.2f;
+        Duplicate();
         direction.Normalize();
+    }
+
+    private void Duplicate()
+    {
+        if (Random.Range(0, 100) >= 99)
+            {
+                speed = 3;
+                GameObject.Instantiate(this);
+            }
     }
 
     // Update is called once per frame
