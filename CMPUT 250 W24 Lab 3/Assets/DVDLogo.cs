@@ -5,7 +5,7 @@ using UnityEngine;
 public class DVDLogo : MonoBehaviour
 {
     //Speed it moves at
-    public float speed = 3;
+    public float speed = 20;
 
     //Bounds of the screen (could get these with camera bounds but we can do this since it's a fixed camera)
     public float X_Max = 5, Y_Max = 4;
@@ -41,7 +41,7 @@ public class DVDLogo : MonoBehaviour
     {
         //Move in direction unless we'd go out of bounds, if so bounce with some randomness
 
-        Vector3 newPosition = transform.position + direction*Time.deltaTime*speed;
+        Vector3 newPosition = transform.position + direction*Time.deltaTime*speed*3;
 
         //See if a bounce needs to happen before moving
         if (newPosition.x>X_Max){
@@ -59,6 +59,6 @@ public class DVDLogo : MonoBehaviour
             FlipDirectionY();
         }
 
-        transform.position += direction*Time.deltaTime*speed;
+        transform.position += direction*Time.deltaTime*speed*3;
     }
 }
