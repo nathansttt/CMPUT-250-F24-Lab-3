@@ -13,6 +13,12 @@ public class DVDLogo : MonoBehaviour
     //Current direction
     private Vector3 direction;
 
+    // Scaling variables for growing and shrinking
+    public float scaleSpeed = 2.0f;  
+    public float minScale = 0.5f;  
+    public float maxScale = 1.5f; 
+    private bool growing = true;    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +65,25 @@ public class DVDLogo : MonoBehaviour
             FlipDirectionY();
         }
 
-        transform.position += direction*Time.deltaTime*speed;
+        transform.position += direction * Time.deltaTime * speed;
+
+        Vector3 scale = transform.localScale;
+        if (growing)
+        {
+            scale += Vector3.one * scaleSpeed * Time.deltaTime;
+            if (scale.x >= maxScale)
+            {
+                growing = false;
+            }
+        }
+        else
+        {
+            scale -= Vector3.one * scaleSpeed * Time.deltaTime;
+            if (scale.x <= minScale)
+            {
+                growing = true;
+            }
+        }
+        transform.localScale = scale;  // Apply the scaling change
     }
 }
