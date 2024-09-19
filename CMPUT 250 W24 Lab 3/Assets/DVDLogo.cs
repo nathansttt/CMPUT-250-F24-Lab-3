@@ -59,6 +59,8 @@ public class DVDLogo : MonoBehaviour
             FlipDirectionY();
         }
 
+        speed += 0.05f; // continuously increase speed 
+
         transform.position += direction*Time.deltaTime*speed;
     }
 }
