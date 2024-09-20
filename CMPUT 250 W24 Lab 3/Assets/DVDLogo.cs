@@ -5,13 +5,17 @@ using UnityEngine;
 public class DVDLogo : MonoBehaviour
 {
     //Speed it moves at
-    public float speed = 3;
+    private float speed = 10;
 
+    
     //Bounds of the screen (could get these with camera bounds but we can do this since it's a fixed camera)
     public float X_Max = 5, Y_Max = 4;
 
     //Current direction
     private Vector3 direction;
+    
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -43,10 +47,12 @@ public class DVDLogo : MonoBehaviour
 
         Vector3 newPosition = transform.position + direction*Time.deltaTime*speed;
 
+        gameObject.transform.localScale = gameObject.transform.localScale + gameObject.transform.localScale*0.001f;
+        
+
         //See if a bounce needs to happen before moving
         if (newPosition.x>X_Max){
-            FlipDirectionX();
-            
+            FlipDirectionX();   
         }
         else if (newPosition.x<-1*X_Max){
             FlipDirectionX();
