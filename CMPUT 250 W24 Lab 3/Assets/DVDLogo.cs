@@ -46,17 +46,30 @@ public class DVDLogo : MonoBehaviour
         //See if a bounce needs to happen before moving
         if (newPosition.x>X_Max){
             FlipDirectionX();
+            if( speed < 500){
+                speed = speed * 1.25f;
+            }
+            
             
         }
         else if (newPosition.x<-1*X_Max){
             FlipDirectionX();
+            if( speed < 500){
+                speed = speed * 1.25f;
+            }
         }
 
         if (newPosition.y>Y_Max){
             FlipDirectionY();
+            if( speed < 500){
+                speed = speed * 1.25f;
+            }
         }
         else if (newPosition.y<-1*Y_Max){
             FlipDirectionY();
+            if( speed < 500){
+                speed = speed * 1.25f;
+            }
         }
 
         transform.position += direction*Time.deltaTime*speed;
