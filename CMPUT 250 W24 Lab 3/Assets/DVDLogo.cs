@@ -12,6 +12,11 @@ public class DVDLogo : MonoBehaviour
 
     //Current direction
     private Vector3 direction;
+    public float sizeChange;
+    public int sizeChangeToggleUpdates;
+    private int updates;
+    private bool growing = true;
+    private Vector3 change;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +25,20 @@ public class DVDLogo : MonoBehaviour
         direction = new Vector3(Random.Range(-1f,1f), Random.Range(-1f,1f));
         direction.Normalize();
 
+    }
+    public void FixedUpdate() {
+        updates++;
+        if (updates >= sizeChangeToggleUpdates) {
+            growing = !growing;
+            updates = 0;
+        }
+        Vector3 size = transform.localScale;
+        Vector3 change = new Vector3(sizeChange,sizeChange);
+        if (!growing) {
+            change *= -1;
+        }
+        size += change;
+        transform.localScale = size;
     }
 
     private void FlipDirectionX(){
