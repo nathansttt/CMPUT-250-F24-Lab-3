@@ -5,13 +5,14 @@ using UnityEngine;
 public class DVDLogo : MonoBehaviour
 {
     //Speed it moves at
-    public float speed = 3;
+    public float speed = 10;
 
     //Bounds of the screen (could get these with camera bounds but we can do this since it's a fixed camera)
     public float X_Max = 5, Y_Max = 4;
 
     //Current direction
     private Vector3 direction;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +37,11 @@ public class DVDLogo : MonoBehaviour
         direction.Normalize();
     }
 
+
     // Update is called once per frame
     void Update()
     {
         //Move in direction unless we'd go out of bounds, if so bounce with some randomness
-
         Vector3 newPosition = transform.position + direction*Time.deltaTime*speed;
 
         //See if a bounce needs to happen before moving
