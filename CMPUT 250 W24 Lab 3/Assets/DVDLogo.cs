@@ -44,7 +44,7 @@ public class DVDLogo : MonoBehaviour
         Vector3 newPosition = transform.position + direction*Time.deltaTime*speed;
 
         //See if a bounce needs to happen before moving
-        if (newPosition.x>X_Max){
+        if (newPosition.x>0){
             FlipDirectionX();
             
         }
@@ -55,7 +55,7 @@ public class DVDLogo : MonoBehaviour
         if (newPosition.y>Y_Max){
             FlipDirectionY();
         }
-        else if (newPosition.y<-1*Y_Max){
+        else if (newPosition.y<0){
             FlipDirectionY();
         }
 
