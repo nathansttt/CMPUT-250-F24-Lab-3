@@ -168,6 +168,11 @@ MonoBehaviour:
   speed: 3
   X_Max: 5
   Y_Max: 4
+  dvdSprite: {fileID: 0}
+  colourChannel: 0
+  dColour: -1
+  colourTimer: 0
+  cTimerMax: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,7 +282,7 @@ Transform:
   m_GameObject: {fileID: 755472557}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 421997421}
   m_RootOrder: 0
@@ -321,7 +326,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6e7069a7db07f489a87c0797b3ff2165, type: 3}
+  m_Sprite: {fileID: 9204378004923242936, guid: d88cf47b02db44d4786bebd752e4dd50,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -560,13 +566,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 5
     m_MaxSize: 50
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This is a bouncing ball
+  m_Text: Wait for a bounce...
 --- !u!222 &2098954804
 CanvasRenderer:
   m_ObjectHideFlags: 0
