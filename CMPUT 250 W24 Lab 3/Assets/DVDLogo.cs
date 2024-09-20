@@ -13,9 +13,14 @@ public class DVDLogo : MonoBehaviour
     //Current direction
     private Vector3 direction;
 
+    //Adding audio (ZOE CHANGED THIS :) )
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = gameObject.GetComponent<AudioSource>();
+
         //Randomly initialize direction
         direction = new Vector3(Random.Range(-1f,1f), Random.Range(-1f,1f));
         direction.Normalize();
@@ -46,17 +51,35 @@ public class DVDLogo : MonoBehaviour
         //See if a bounce needs to happen before moving
         if (newPosition.x>X_Max){
             FlipDirectionX();
-            
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
+
         }
         else if (newPosition.x<-1*X_Max){
             FlipDirectionX();
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
         }
 
         if (newPosition.y>Y_Max){
             FlipDirectionY();
+            speed = 5;
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
         }
         else if (newPosition.y<-1*Y_Max){
             FlipDirectionY();
+            speed = 3;
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
         }
 
         transform.position += direction*Time.deltaTime*speed;
