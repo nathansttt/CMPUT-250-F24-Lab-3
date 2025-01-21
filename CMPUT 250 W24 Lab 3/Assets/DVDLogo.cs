@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class DVDLogo : MonoBehaviour
 {
+    SpriteRenderer sprite;
     //Speed it moves at
-    public float speed = 3;
+
+    public float speed = 9;
 
     //Bounds of the screen (could get these with camera bounds but we can do this since it's a fixed camera)
     public float X_Max = 5, Y_Max = 4;
@@ -19,6 +21,10 @@ public class DVDLogo : MonoBehaviour
         //Randomly initialize direction
         direction = new Vector3(Random.Range(-1f,1f), Random.Range(-1f,1f));
         direction.Normalize();
+
+        sprite = GetComponentInChildren<SpriteRenderer>();
+
+        //sprite = GetComponent<SpriteRenderer>();
 
     }
 
@@ -60,5 +66,7 @@ public class DVDLogo : MonoBehaviour
         }
 
         transform.position += direction*Time.deltaTime*speed;
+
+        sprite.color = new Color(Random.Range(0f,1f),Random.Range(0f,1f),Random.Range(0f,1f));
     }
 }
