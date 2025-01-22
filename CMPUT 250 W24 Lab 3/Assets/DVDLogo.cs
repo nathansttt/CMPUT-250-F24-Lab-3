@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class DVDLogo : MonoBehaviour
 {
+    public List<Sprite> DefaultAnimationCycle;
+    public SpriteRenderer spriteR;
+
+    public float Framerate = 12f;//frames per second
+
+    //private animation stuff
+    private float animationTimer;//current number of seconds since last animation frame update
+    private float animationTimerMax;//max number of seconds for each frame, defined by Framerate
+    
     //Speed it moves at
     public float speed = 3;
 
@@ -12,13 +21,20 @@ public class DVDLogo : MonoBehaviour
 
     //Current direction
     private Vector3 direction;
-
+    
+    protected void AnimationSetup(){
+        animationTimerMax = 1.0f/((float)(Framerate));
+    }
+    
     // Start is called before the first frame update
-    void Start()
+    void Start(){
     {
         //Randomly initialize direction
         direction = new Vector3(Random.Range(-1f,1f), Random.Range(-1f,1f));
         direction.Normalize();
+        AnimationSetup();
+        spriteR = GetComponent<SpriteRenderer>();
+    }
 
     }
 
@@ -60,5 +76,9 @@ public class DVDLogo : MonoBehaviour
         }
 
         transform.position += direction*Time.deltaTime*speed;
+        speed += 1;
+        if(speed == 75){speed = 0;}
     }
+
+
 }
