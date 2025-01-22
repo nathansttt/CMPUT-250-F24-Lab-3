@@ -62,7 +62,7 @@ public class DVDLogo : MonoBehaviour
         }
         else if (newPosition.y<-1*Y_Max){
             FlipDirectionY();
-            sprite.color = new Color (1, 1, 0, 1); 
+            sprite.color = new Color (1, 0, 1, 1); 
         }
 
         transform.position += direction*Time.deltaTime*speed;
