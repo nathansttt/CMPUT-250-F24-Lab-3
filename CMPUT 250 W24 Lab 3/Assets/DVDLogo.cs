@@ -48,21 +48,21 @@ public class DVDLogo : MonoBehaviour
         //See if a bounce needs to happen before moving
         if (newPosition.x>X_Max){
             FlipDirectionX();
-            sprite.color = new Color (1, 0, 0, 1); 
+            sprite.color = new Color (0, 1, 0, 1); 
             
         }
         else if (newPosition.x<-1*X_Max){
             FlipDirectionX();
-            sprite.color = new Color (0, 1, 0, 1); 
+            sprite.color = new Color (0, 0, 1, 1); 
         }
 
         if (newPosition.y>Y_Max){
             FlipDirectionY();
-            sprite.color = new Color (0, 0, 1, 1); 
+            sprite.color = new Color (1, 0, 1, 1); 
         }
         else if (newPosition.y<-1*Y_Max){
             FlipDirectionY();
-            sprite.color = new Color (1, 0, 1, 1); 
+            sprite.color = new Color (1, 1, 0, 1); 
         }
 
         transform.position += direction*Time.deltaTime*speed;

@@ -567,7 +567,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: It will never hit the corner.
+  m_Text: It will neber hit the corner.
 --- !u!222 &2098954804
 CanvasRenderer:
   m_ObjectHideFlags: 0
