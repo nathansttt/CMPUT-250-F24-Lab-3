@@ -5,7 +5,8 @@ using UnityEngine;
 public class DVDLogo : MonoBehaviour
 {
     //Speed it moves at
-    public float speed = 3;
+    public float speed = 5;
+    SpriteRenderer sprite;
 
     //Bounds of the screen (could get these with camera bounds but we can do this since it's a fixed camera)
     public float X_Max = 5, Y_Max = 4;
@@ -17,6 +18,7 @@ public class DVDLogo : MonoBehaviour
     void Start()
     {
         //Randomly initialize direction
+        sprite = GetComponentInChildren<SpriteRenderer>();
         direction = new Vector3(Random.Range(-1f,1f), Random.Range(-1f,1f));
         direction.Normalize();
 
@@ -46,17 +48,21 @@ public class DVDLogo : MonoBehaviour
         //See if a bounce needs to happen before moving
         if (newPosition.x>X_Max){
             FlipDirectionX();
+            sprite.color = new Color (1, 0, 0, 1); 
             
         }
         else if (newPosition.x<-1*X_Max){
             FlipDirectionX();
+            sprite.color = new Color (0, 1, 0, 1); 
         }
 
         if (newPosition.y>Y_Max){
             FlipDirectionY();
+            sprite.color = new Color (0, 0, 1, 1); 
         }
         else if (newPosition.y<-1*Y_Max){
             FlipDirectionY();
+            sprite.color = new Color (1, 0, 1, 1); 
         }
 
         transform.position += direction*Time.deltaTime*speed;
