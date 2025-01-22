@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df35848a1b344bd5a1923d962ae8b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 88
   X_Max: 5
   Y_Max: 4
 --- !u!1 &519420028
@@ -566,7 +566,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This is a bouncing ball
+  m_Text: The bouncing ball is moving faster than what the human eye can comfortably
+    comprehend. Do not fear the ball, for it only seeks to understand human emotion
+    and...
 --- !u!222 &2098954804
 CanvasRenderer:
   m_ObjectHideFlags: 0
