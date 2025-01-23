@@ -10,6 +10,8 @@ public class DVDLogo : MonoBehaviour
     //Bounds of the screen (could get these with camera bounds but we can do this since it's a fixed camera)
     public float X_Max = 5, Y_Max = 4;
 
+    public int scale = 5;
+
     //Current direction
     private Vector3 direction;
 
@@ -36,6 +38,13 @@ public class DVDLogo : MonoBehaviour
         direction.Normalize();
     }
 
+    private int ChangeScale(int x){
+
+        x = Random.Range(1,x);
+
+        return x;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -46,17 +55,21 @@ public class DVDLogo : MonoBehaviour
         //See if a bounce needs to happen before moving
         if (newPosition.x>X_Max){
             FlipDirectionX();
+            gameObject.transform.localScale = new Vector3(ChangeScale(scale), ChangeScale(scale), ChangeScale(scale));
             
         }
         else if (newPosition.x<-1*X_Max){
             FlipDirectionX();
+            gameObject.transform.localScale = new Vector3(ChangeScale(scale), ChangeScale(scale), ChangeScale(scale));
         }
 
         if (newPosition.y>Y_Max){
             FlipDirectionY();
+            gameObject.transform.localScale = new Vector3(ChangeScale(scale), ChangeScale(scale), ChangeScale(scale));
         }
         else if (newPosition.y<-1*Y_Max){
             FlipDirectionY();
+            gameObject.transform.localScale = new Vector3(ChangeScale(scale), ChangeScale(scale), ChangeScale(scale));
         }
 
         transform.position += direction*Time.deltaTime*speed;
