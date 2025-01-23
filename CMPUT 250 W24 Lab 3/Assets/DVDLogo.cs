@@ -15,12 +15,12 @@ public class DVDLogo : MonoBehaviour
     private Vector3 direction;
 
     // color of the sprite
-    SpriteRenderer sprite;
+    SpriteRenderer sprite; // to be able to change the color of the sprite
 
-    public Color flashColor = Color.red; // The color to flash (red in this case)
-    public float flashDuration = 0.01f;  // How long to display the flash color
+    public Color flashColor = Color.red; // The sprite with flash red
+    public float flashDuration = 0.01f;  // How long to show the change of color
     public int flashCount = 1;          // How many times to flash
-    private Color originalColor;
+    private Color originalColor;        // will store the original color
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +28,8 @@ public class DVDLogo : MonoBehaviour
         //Randomly initialize direction
         direction = new Vector3(Random.Range(-1f,1f), Random.Range(-1f,1f));
         direction.Normalize();
-        sprite = GetComponent<SpriteRenderer>();
-        originalColor = sprite.color; // Store the original color of the sprite
+        sprite = GetComponent<SpriteRenderer>(); // creates game object to be able to change color of sprite
+        originalColor = sprite.color; // here actually stores the original color of the sprite
 
     }
 
@@ -47,13 +47,16 @@ public class DVDLogo : MonoBehaviour
         direction.Normalize();
     }
 
-    private IEnumerator Flashing()
+    private IEnumerator Flashing() // function to be able to flash the color of the sprite
+                                   // IEnumerator supports interation without affecting game play
+                                   // here stops and resumes over multiple frames without affecting the main game
+                                   // help from chatgpt
     {
 
-        for (int i = 0; i < flashCount; i++)
+        for (int i = 0; i < flashCount; i++) // for loop that changes back and forth from flash color back to original color
         {
             sprite.color = flashColor; // Change to the flash color
-            yield return new WaitForSeconds(flashDuration); // Wait for the flash duration
+            yield return new WaitForSeconds(flashDuration); // pauses for the flash duration
             sprite.color = originalColor; // Change back to the original color
             yield return new WaitForSeconds(flashDuration); // Wait before flashing again
 
@@ -64,37 +67,27 @@ void Update()
     {
         //Move in direction unless we'd go out of bounds, if so bounce with some randomness
 
-        //Vector3 newPosition = transform.position + direction*Time.deltaTime*(speed* speed_increase);
-        Vector3 newPosition = transform.position + direction * Time.deltaTime * speed;
+        Vector3 newPosition = transform.position + direction*Time.deltaTime*(speed* speed_increase);
+        
         //See if a bounce needs to happen before moving
         if (newPosition.x>X_Max){
-            //sprite.color = new Color(1, 0, 0, 1);
-            //Debug.Log(sprite.color);
-            Debug.Log(sprite.color);
             StartCoroutine(Flashing());
-            Debug.Log(sprite.color);
             FlipDirectionX();
-            //sprite.color = new Color(1, 1, 1, 1);
-            //Debug.Log(sprite.color);
         }
         else if (newPosition.x<-1*X_Max){
-            //sprite.color = new Color(1, 1, 1, 1);
             StartCoroutine(Flashing());
             FlipDirectionX();
         }
 
         if (newPosition.y>Y_Max){
-            //sprite.color = new Color(1, 1, 1, 1);
             StartCoroutine(Flashing());
             FlipDirectionY();
         }
         else if (newPosition.y<-1*Y_Max){
-            //sprite.color = new Color(1, 1, 1, 1);
             StartCoroutine(Flashing());
             FlipDirectionY();
         }
 
-        //transform.position += direction*Time.deltaTime*(speed* speed_increase);
-        transform.position += direction * Time.deltaTime * speed;
+        transform.position += direction*Time.deltaTime*(speed* speed_increase);
     }
 }
