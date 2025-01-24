@@ -6,6 +6,7 @@ public class DVDLogo : MonoBehaviour
 {
     //Speed it moves at
     public float speed = 3;
+    public bool flipped = false;
 
     //Bounds of the screen (could get these with camera bounds but we can do this since it's a fixed camera)
     public float X_Max = 5, Y_Max = 4;
@@ -27,6 +28,14 @@ public class DVDLogo : MonoBehaviour
         direction.x+= Random.Range(-0.1f,0.1f);
         direction.y+= Random.Range(-0.1f,0.1f);
         direction.Normalize();
+        if(flipped){
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+            flipped = false;
+        }
+        else{
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+            flipped = true;
+        }
     }
 
     private void FlipDirectionY(){
