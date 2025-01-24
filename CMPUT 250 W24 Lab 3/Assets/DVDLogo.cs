@@ -5,13 +5,16 @@ using UnityEngine;
 public class DVDLogo : MonoBehaviour
 {
     //Speed it moves at
-    public float speed = 3;
+    public float speed = 5;
+    private float speedMult = 1;
 
     //Bounds of the screen (could get these with camera bounds but we can do this since it's a fixed camera)
     public float X_Max = 5, Y_Max = 4;
 
     //Current direction
     private Vector3 direction;
+
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -23,14 +26,18 @@ public class DVDLogo : MonoBehaviour
     }
 
     private void FlipDirectionX(){
+        speedMult = 3;
         direction.x*=-1;
+        spriteRenderer.flipX = direction.x < 0 ? true : false;
         direction.x+= Random.Range(-0.1f,0.1f);
         direction.y+= Random.Range(-0.1f,0.1f);
         direction.Normalize();
     }
 
     private void FlipDirectionY(){
+        speedMult = 3;
         direction.y*=-1;
+        spriteRenderer.flipY = direction.y < 0 ? true : false;
         direction.x+= Random.Range(-0.1f,0.1f);
         direction.y+= Random.Range(-0.1f,0.1f);
         direction.Normalize();
@@ -59,6 +66,15 @@ public class DVDLogo : MonoBehaviour
             FlipDirectionY();
         }
 
-        transform.position += direction*Time.deltaTime*speed;
+        transform.position += direction*Time.deltaTime*speed*speedMult;
+
+        if (speedMult > 1)
+        {
+            speedMult -= Time.deltaTime * 2;
+        }
+        else
+        {
+            speedMult = 1;
+        }
     }
 }
