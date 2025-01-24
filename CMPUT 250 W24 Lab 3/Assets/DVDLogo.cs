@@ -13,26 +13,34 @@ public class DVDLogo : MonoBehaviour
     //Current direction
     private Vector3 direction;
 
+    // Axis of rotation
+    public Vector3 spinAxis = new Vector3(0, 1, 0);
+
+    // Speed of rotation in degrees per second
+    public float spinSpeed = 50f; 
+
     // Start is called before the first frame update
     void Start()
     {
         //Randomly initialize direction
-        direction = new Vector3(Random.Range(-1f,1f), Random.Range(-1f,1f));
+        direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         direction.Normalize();
 
     }
 
-    private void FlipDirectionX(){
-        direction.x*=-1;
-        direction.x+= Random.Range(-0.1f,0.1f);
-        direction.y+= Random.Range(-0.1f,0.1f);
+    private void FlipDirectionX()
+    {
+        direction.x *= -1;
+        direction.x += Random.Range(-0.1f, 0.1f);
+        direction.y += Random.Range(-0.1f, 0.1f);
         direction.Normalize();
     }
 
-    private void FlipDirectionY(){
-        direction.y*=-1;
-        direction.x+= Random.Range(-0.1f,0.1f);
-        direction.y+= Random.Range(-0.1f,0.1f);
+    private void FlipDirectionY()
+    {
+        direction.y *= -1;
+        direction.x += Random.Range(-0.1f, 0.1f);
+        direction.y += Random.Range(-0.1f, 0.1f);
         direction.Normalize();
     }
 
@@ -41,24 +49,31 @@ public class DVDLogo : MonoBehaviour
     {
         //Move in direction unless we'd go out of bounds, if so bounce with some randomness
 
-        Vector3 newPosition = transform.position + direction*Time.deltaTime*speed;
+        Vector3 newPosition = transform.position + direction * Time.deltaTime * speed;
 
         //See if a bounce needs to happen before moving
-        if (newPosition.x>X_Max){
+        if (newPosition.x > X_Max)
+        {
             FlipDirectionX();
-            
+
         }
-        else if (newPosition.x<-1*X_Max){
+        else if (newPosition.x < -1 * X_Max)
+        {
             FlipDirectionX();
         }
 
-        if (newPosition.y>Y_Max){
+        if (newPosition.y > Y_Max)
+        {
             FlipDirectionY();
         }
-        else if (newPosition.y<-1*Y_Max){
+        else if (newPosition.y < -1 * Y_Max)
+        {
             FlipDirectionY();
         }
 
-        transform.position += direction*Time.deltaTime*speed;
+        
+        transform.Rotate(spinAxis * spinSpeed * Time.deltaTime);
+
+        transform.position += direction * Time.deltaTime * speed;
     }
 }
