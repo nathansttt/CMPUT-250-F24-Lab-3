@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 755472558}
   - component: {fileID: 755472559}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: jeans
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -277,7 +277,7 @@ Transform:
   m_GameObject: {fileID: 755472557}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.07540084, y: 0.07540084, z: 0.3770042}
   m_Children: []
   m_Father: {fileID: 421997421}
   m_RootOrder: 0
@@ -321,8 +321,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6e7069a7db07f489a87c0797b3ff2165, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 82abf36e695b7c4479902e1cc5855cb2, type: 3}
+  m_Color: {r: 0.41725492, g: 0.50281686, b: 0.8784314, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -566,7 +566,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This is a bouncing ball
+  m_Text: This is a bouncing pair of jeans
 --- !u!222 &2098954804
 CanvasRenderer:
   m_ObjectHideFlags: 0
