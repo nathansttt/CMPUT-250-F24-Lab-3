@@ -5,7 +5,7 @@ using UnityEngine;
 public class DVDLogo : MonoBehaviour
 {
     //Speed it moves at
-    public float speed = 3;
+    public float speed = 20;
 
     //Bounds of the screen (could get these with camera bounds but we can do this since it's a fixed camera)
     public float X_Max = 5, Y_Max = 4;
@@ -24,7 +24,7 @@ public class DVDLogo : MonoBehaviour
 
     private void FlipDirectionX(){
         direction.x*=-1;
-        direction.x+= Random.Range(-0.1f,0.1f);
+        direction.x+= Random.Range(-0.5f,0.5f);
         direction.y+= Random.Range(-0.1f,0.1f);
         direction.Normalize();
     }
